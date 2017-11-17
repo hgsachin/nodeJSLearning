@@ -14,7 +14,7 @@ if (cmd === 'Add') {
 } else if (cmd === 'read') {
     console.log('Reading note');
 } else if (cmd === 'remove') {
-    console.log('Removing the node');
+    notes.removeNote(argv.title);
 } else {
     console.log('Unrecognized command');
 }
