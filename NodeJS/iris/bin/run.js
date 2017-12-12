@@ -3,10 +3,14 @@ const http = require('http');
 const slackClient = require('../server/slackclient');
 const server = http.createServer(service);
 
-const bot_token = 'xoxb-285375620146-OS8TsBpOYtnSZ6UKz4kTkd5z';
+const witToken = 'L65ZK6MHVBADW4MGFE3G2A2RG6TLYB4K';
+
+const witClient = require('../server/witClient')(witToken);
+
+const bot_token = 'xoxb-285375620146-ccKTyk6GtouR6hQf4WY5ldww';
 const slackLogLevel = 'verbose';
 
-const rtm = slackClient.init(bot_token, slackLogLevel);
+const rtm = slackClient.init(bot_token, slackLogLevel, witClient);
 rtm.start();
 
 slackClient.addAuthenticatedhandler(rtm, () => server.listen(3000))
