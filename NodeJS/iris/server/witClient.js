@@ -15,7 +15,7 @@ module.exports = function witClient(token){
                 if(err) return cb(err);
                 if(res.statusCode !== 200) return cb('Expected status 200, but got ' + res.statusCode);
                 const witResponse = handleWitResponse(res.body.entities);
-                cb(undefined, witResponse);
+                cb(null, witResponse);
             })
         console.log('ask : ' + message);
         console.log('token : ' + token);
